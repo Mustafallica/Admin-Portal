@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>Manage Accounts</title>
+{%endblock%}
+
+{% block body%}
+<div class="limiter">
+    <div style="background-image: url('/static/images/bg-02.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 100%; position: fixed;
+        top: o; left: 0; min-width: 100%; min-height: 100%;">
+        <h1 class="animate_header">Manage Users</h1>
+        <br>
+        <br>
+        <div align="center">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Password </th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                {%for user in users%}
+                <tr>
+                    <th>{{user.email}}</th>
+                    <th>{{user.password}}</th>
+                    <th>{{user.role}}</th>
+                    <th>
+                        <a href="/delete/{{user.id}}">Delete</a>
+                        <a href="/update/{{user.id}}">update</a>
+                    </th>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

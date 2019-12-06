@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block head%}
+<title>User Page</title>
+{%endblock%}
+
+{% block body%}
+<div class="limiter">
+    <div style="background-image: url('/static/images/bg-02.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 100%; position: fixed;
+        top: o; left: 0; min-width: 100%; min-height: 100%;">
+        <h1 class="animate_header">Welcome!</h1>
+        <br>
+        <div align="right">
+            <a href="/" style="font-family: sans-serif; font-size:14px; color: bisque; margin-right: 2.5em;">Sign
+                out</a>
+        </div>
+        <br>
+        <div align="center">
+            {% if user == "super_admin" %}
+            <a href="/manage">Manage User Accounts</a>
+            <br>
+            <a href="/add_role">Assign Roles</a>
+            <br>
+            {%else%}
+            <a href="https://account.google.com/">Manage User Accounts</a>
+            <br>
+            <a href="https://docs.moodle.org/37/en/Assign_roles">Assign Roles</a>
+            <br>
+            {% endif %}
+            <a href="https://en.wikipedia.org/wiki/Help_desk">Help Desk</a>
+            <br>
+            {% if user == "finance" %}
+            <a href="https://edu.gcfglobal.org/en/windows7/managing-user-accounts-and-parental-controls/1/">Finance
+                Reports</a>
+            <br>
+            <a href="https://docs.moodle.org/en/Assign_roles">Accounts Payable</a>
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Help_desk">Accounts Receivables</a>
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Help_desk">Tax</a>
+
+            {% elif user == "sales" %}
+            <a href="https://edu.gcfglobal.org/en/windows7/managing-user-accounts-and-parental-controls/1/">Sales
+                Reports</a>
+            <br>
+            <a href="https://docs.moodle.org/en/Assign_roles">Sales Leads</a>
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Help_desk">Sales Demo</a>
+
+            {% elif user == "hr" %}
+            <a href="https://edu.gcfglobal.org/en/windows7/managing-user-accounts-and-parental-controls/1/">New Hire</a>
+            <br>
+            <a href="https://docs.moodle.org/en/Assign_roles">On-boarding</a>
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Help_desk">Benefits</a>
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Help_desk">Payroll</a>
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Help_desk">Terminations</a>
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Help_desk">HR Reports</a>
+
+            {% elif user == "eng" %}
+            <a href="https://edu.gcfglobal.org/en/windows7/managing-user-accounts-and-parental-controls/1/">Application
+                Monitoring</a>
+            <br>
+            <a href="https://docs.moodle.org/en/Assign_roles">Tech Support</a>
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Help_desk">App Development</a>
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Help_desk">App Admin</a>
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Help_desk">Release Management</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{%endblock%}
